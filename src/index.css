@@ -1,0 +1,334 @@
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes chess-move {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(5px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+:root {
+  --ivory: #FFFFF0;
+  --brown-light: #D2B48C;
+  --brown: #A0522D;
+  --brown-dark: #654321;
+  --brown-darker: #321414;
+  --accent: #8B4513;
+  --text: #333333;
+  --text-light: #555555;
+  --border: #CD853F;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --brutal-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: var(--ivory);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: rgba(255, 255, 240, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  font-weight: 600;
+  margin: 0.5em 0;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--brown-dark);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--brown-light);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+h1::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--brown);
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--brown);
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+h2::before {
+  position: absolute;
+  left: 0;
+  color: var(--brown-light);
+}
+
+/* Навигация */
+nav ul {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  color: var(--brown-dark);
+  text-decoration: none;
+  border: 2px solid var(--brown);
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: var(--brown);
+  color: var(--ivory);
+  animation: chess-move 0.3s ease;
+}
+
+/* Формы */
+.compact-form {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid var(--brown-light);
+  margin: 1rem 0;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--brown);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Кнопки */
+.btn-primary {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem 0.5rem 2.2rem;
+  background-color: var(--brown);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  position: relative;
+  font-weight: 500;
+}
+
+.btn-primary::before {
+  position: absolute;
+  left: 0.8rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--brown-dark);
+}
+
+/* Таблицы */
+.table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.compact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.compact-table th {
+  background-color: var(--brown-light);
+  color: var(--text);
+  padding: 0.5rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.compact-table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--brown-light);
+}
+
+.compact-table tr:nth-child(even) {
+  background-color: rgba(210, 180, 140, 0.1);
+}
+
+/* Карточки */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.player-card {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid var(--brown-light);
+  box-shadow: var(--shadow);
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.player-card::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  color: rgba(165, 42, 42, 0.1);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+/* Результаты пар */
+.pairing-result {
+  background-color: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid var(--brown-light);
+  box-shadow: var(--shadow);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.players-names {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.radio-group.compact {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.radio-option {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* История турниров */
+.tournaments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.tournament-card {
+  background-color: white;
+  padding: 1.5rem;
+  border: 1px solid var(--brown-light);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.tournament-card:hover {
+  transform: translateY(-3px);
+}
+
+.tournament-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.tournament-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-secondary {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  background-color: var(--brown-light);
+  color: var(--brown-darker);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background-color: var(--brown);
+  color: white;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  nav ul {
+    flex-direction: column;
+  }
+  
+  .tournaments-list {
+    grid-template-columns: 1fr;
+  }
+}
